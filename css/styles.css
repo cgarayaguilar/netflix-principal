@@ -101,6 +101,100 @@ header nav a.active {
 .principal-movie .button i {
   margin-right: 1.25em;
 }
+/***********Title container and controls**************/
+.container-title-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.container-title-controls h3 {
+  color: #fff;
+  font-size: 30px;
+}
+
+.container-title-controls .indicators button {
+  background: #fff;
+  height: 3px;
+  width: 10px;
+  cursor: pointer;
+  border: none;
+  margin-right: 2px;
+}
+
+.container-title-controls .indicators button:hover,
+.container-title-controls .indicators button.active {
+  background: var(--red);
+}
+
+/***********Principal container and arrows**************/
+.recomended-movies {
+  margin-bottom: 70px;
+}
+
+.recomended-movies .principal-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.principal-container .left-arrow,
+.principal-container .right-arrow {
+  position: absolute;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  font-size: 40px;
+  height: 50%;
+  top: cal(50% - 25%);
+  line-height: 40px;
+  width: 50px;
+  color: #fff;
+  z-index: 500;
+  transition: 0.2s ease all;
+  outline: none;
+}
+
+.principal-container .left-arrow:hover,
+.principal-container .right-arrow:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.principal-container .left-arrow {
+  left: 0;
+}
+
+.principal-container .right-arrow {
+  right: 0;
+}
+
+/***********Carousel**************/
+.recomended-movies .carousel-container {
+  width: 100%;
+  padding: 20px 0;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.carousel-container .carousel {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.carousel-container .carousel .movie {
+  min-width: 20%;
+  transition: 0.3s ease all;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-container .carousel .movie img {
+  width: 100%;
+  vertical-align: top;
+}
+
+.carousel-container .carousel .movie.hover {
+  transform: scale(1.2);
+  transform-origin: center;
+}
 
 /***********Media queries**************/
 
@@ -121,5 +215,21 @@ header nav a.active {
 
   .principal-movie .description {
     max-width: 100%;
+  }
+
+  .carousel-container .carousel .movie {
+    overflow: visible;
+  }
+
+  .carousel-container .carousel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .container-title-controls .indicators,
+  .principal-container .left-arrow,
+  .principal-container .right-arrow {
+    display: none;
   }
 }
